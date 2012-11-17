@@ -17,7 +17,6 @@ class certmaster::params {
 
 ### The following parameters should not need to be changed.
 
-  # If it's undef, that's fine
   $listen_addr = $::certmaster_listen_addr ? {
     undef   => '',
     default => $::certmaster_listen_addr,
@@ -47,29 +46,9 @@ class certmaster::params {
     default => $::certmaster_ensure,
   }
 
-  $package_name = $::certmaster_package_name ? {
-    undef   => 'certmaster',
-    default => $::certmaster_package_name,
-  }
-
-  $file_name = $::certmaster_file_name ? {
-    undef   => '/etc/certmaster/minion.conf',
-    default => $::certmaster_file_name,
-  }
-
-  $server_file_name = $::certmaster_server_file_name ? {
-    undef   => '/etc/certmaster/certmaster.conf',
-    default => $::certmaster_server_file_name,
-  }
-
   $service_ensure = $::certmaster_service_ensure ? {
     undef   => 'stopped',
     default => $::certmaster_service_ensure,
-  }
-
-  $service_name = $::certmaster_service_name ? {
-    undef   => 'certmaster',
-    default => $::certmaster_service_name,
   }
 
   # Since the top scope variable could be a string (if from an ENC), we might
@@ -104,7 +83,7 @@ class certmaster::params {
     $safe_service_hasrestart = $service_hasrestart
   }
 
-  # certmaster init script does not have a functioning status
+  # RHEL certmaster init script does not have a functioning status
   $service_hasstatus = $::certmaster_service_hasstatus ? {
     undef   => false,
     default => $::certmaster_service_hasstatus,
@@ -117,6 +96,10 @@ class certmaster::params {
 
   case $::osfamily {
     'RedHat': {
+      $package_name     = 'certmaster'
+      $file_name        = '/etc/certmaster/minion.conf'
+      $server_file_name = '/etc/certmaster/certmaster.conf'
+      $service_name     = 'certmaster'
     }
     default: {
       fail("Unsupported platform: ${::osfamily}")
