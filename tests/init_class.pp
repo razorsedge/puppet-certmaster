@@ -1,0 +1,3 @@
+class { 'certmaster':
+  certmaster => 'localhost',
+}
