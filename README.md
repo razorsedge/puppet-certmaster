@@ -56,7 +56,7 @@ Examples
 Notes
 -----
 
-* None
+* By default the certmaster service will be disabled as we assume most nodes will be clients.  Set service_ensure and service_enable to turn on the certmaster service.
 
 Issues
 ------

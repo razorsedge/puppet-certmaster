@@ -1,9 +1,8 @@
 # == Class: certmaster
 #
-# This module handles installing and configuring a certmaster client.  This is
-# normally included in addition to the func module.  This module requires
-# certmaster version 0.27 or newer and will configure cetmaster to use puppet
-# certificates.  To configure a certmaster server, include certmaster::server.
+# This module handles installing and configuring a certmaster client and/or
+# server.  By default the service will be disabled unless parameters are passed
+# to start the service.
 #
 # === Parameters:
 #
@@ -20,42 +19,54 @@
 #   Default: false
 #
 # [*ensure*]
-# Ensure if present or absent.
-# Default: present
+#   Ensure if present or absent.
+#   Default: present
 #
 # [*autoupgrade*]
-# Upgrade package automatically, if there is a newer version.
-# Default: false
+#   Upgrade package automatically, if there is a newer version.
+#   Default: false
 #
-# [*package*]
-# Name of the package.
-# Only set this if your platform is not supported or you know what you are
-# doing.
-# Default: auto-set, platform specific
+# [*package_name*]
+#   Name of the package.
+#   Only set this if your platform is not supported or you know what you are
+#   doing.
+#   Default: auto-set, platform specific
+#
+# [*file_name*]
+#   Name of the client config file.
+#   Only set this if your platform is not supported or you know what you are
+#   doing.
+#   Default: auto-set, platform specific
+#
+# [*server_file_name*]
+#   Name of the server config file.
+#   Only set this if your platform is not supported or you know what you are
+#   doing.
+#   Default: auto-set, platform specific
 #
 # [*service_ensure*]
-# Ensure if service is running or stopped.
-# Default: stopped
+#   Ensure if service is running or stopped.
+#   Default: stopped
 #
 # [*service_name*]
-# Name of the service
-# Only set this if your platform is not supported or you know what you are
-# doing.
-# Default: auto-set, platform specific
+#   Name of the service
+#   Only set this if your platform is not supported or you know what you are
+#   doing.
+#   Default: auto-set, platform specific
 #
 # [*service_enable*]
-# Start service at boot.
-# Default: false
-#
-# [*service_hasstatus*]
-# Service has status command.
-# Only set this if your platform is not supported or you know what you are
-# doing.
-# Default: auto-set, platform specific
+#   Start service at boot.
+#   Default: false
 #
 # [*service_hasrestart*]
-# Service has restart command.
-# Default: true
+#   Service has restart command.
+#   Default: true
+#
+# [*service_hasstatus*]
+#   Service has status command.
+#   Only set this if your platform is not supported or you know what you are
+#   doing.
+#   Default: true
 #
 # === Actions:
 #
@@ -77,7 +88,7 @@
 #   node 'certmaster.example.com' {
 #     class { 'certmaster':
 #       autoupgrade    => true,
-#       autosign       => false,  # Can be true to automatically sign certificates.
+#       autosign       => false,  # Can be true to automatically sign certs.
 #       listen_addr    => 'certmaster.example.com',
 #       service_ensure => 'running',
 #       service_enable => true,
