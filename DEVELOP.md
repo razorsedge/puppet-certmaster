@@ -22,7 +22,7 @@ Tests are written with [rspec-puppet](http://rspec-puppet.com/). CI is covered b
 
 To run all tests:
 
-make test
+    rake spec
 
 Branching
 ---------
@@ -65,5 +65,5 @@ In this phase, only meta information should be touched, like bumping the version
 Versioning
 ----------
 
-This project is versioned with the help of the [Semantic Versioning Specification](http://semver.org/) using 0.0.0 as the initial version. Please make sure you have read the guidelines before increasing a version number either for a release or a hotfix.
+This project is versioned with the help of the [Semantic Versioning Specification](http://semver.org/) using 0.0.1 as the initial version. Please make sure you have read the guidelines before increasing a version number either for a release or a hotfix.
 
