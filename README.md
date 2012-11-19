@@ -26,6 +26,8 @@ Class documentation is available via puppetdoc.
 Examples
 --------
 
+Normal Certmaster operation:
+
     # Top Scope variable (i.e. via Dashboard):
     $certmaster_certmaster = 'certmaster.example.com'
     $certmaster_autoupgrade = true
@@ -44,6 +46,7 @@ Examples
     # master
     node 'certmaster.example.com' {
       class { 'certmaster':
+        certmaster     => 'certmaster.example.com',
         autoupgrade    => true,
         autosign       => false,  # Can be true to automatically sign certificates.
         listen_addr    => 'certmaster.example.com',
@@ -52,11 +55,25 @@ Examples
       }
     }
 
+Use Puppet certificates instead of Certmaster's:
+
+    # Top Scope variable (i.e. via Dashboard):
+    $certmaster_use_puppet_certs = true
+    include 'certmaster'
+
+
+    # Parameterized Class:
+    # (There is no need to run the Certmaster daemon in this mode.)
+    class { 'certmaster':
+      use_puppet_certs => true,
+    }
+
 
 Notes
 -----
 
 * By default the certmaster service will be disabled as we assume most nodes will be clients.  Set service_ensure and service_enable to turn on the certmaster service.
+* Requires [EPEL](http://fedoraproject.org/wiki/EPEL) for RedHat family hosts.
 
 Issues
 ------
@@ -66,7 +83,7 @@ Issues
 TODO
 ----
 
-* None
+* Add firewall support.
 
 License
 -------

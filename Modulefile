@@ -9,3 +9,4 @@ summary 'Puppet module to install and mange certmaster.'
 description 'https://fedorahosted.org/certmaster/
 Certmaster is a set of tools and a library for easily distributing SSL certificates to applications that need them.'
 dependency 'puppetlabs/stdlib', '~2'
+dependency 'stahnma/epel', '>=0.0.1'

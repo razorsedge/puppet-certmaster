@@ -37,6 +37,16 @@ class certmaster::params {
     $safe_autosign = $autosign
   }
 
+  $use_puppet_certs = $::func_use_puppet_certs ? {
+    undef   => false,
+    default => $::func_use_puppet_certs,
+  }
+  if is_string($use_puppet_certs) {
+    $safe_use_puppet_certs = str2bool($use_puppet_certs)
+  } else {
+    $safe_use_puppet_certs = $use_puppet_certs
+  }
+
   ######################################################################
 
   # If we have a top scope variable defined, use it, otherwise fall back to a

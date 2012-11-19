@@ -18,6 +18,10 @@
 #   Whether to automatically sign certificate requests.
 #   Default: false
 #
+# [*use_puppet_certs*]
+#   Whether to use existing Puppet certificates or use Certmaster.
+#   Default: false
+#
 # [*ensure*]
 #   Ensure if present or absent.
 #   Default: present
@@ -107,6 +111,7 @@ class certmaster (
   $certmaster         = $certmaster::params::certmaster,
   $listen_addr        = $certmaster::params::listen_addr,
   $autosign           = $certmaster::params::safe_autosign,
+  $use_puppet_certs   = $certmaster::params::safe_use_puppet_certs,
   $ensure             = $certmaster::params::ensure,
   $autoupgrade        = $certmaster::params::safe_autoupgrade,
   $package_name       = $certmaster::params::package_name,
@@ -116,10 +121,11 @@ class certmaster (
   $service_name       = $certmaster::params::service_name,
   $service_enable     = $certmaster::params::safe_service_enable,
   $service_hasrestart = $certmaster::params::safe_service_hasrestart,
-  $service_hasstatus  = $certmaster::params::service_hasstatus
+  $service_hasstatus  = $certmaster::params::safe_service_hasstatus
 ) inherits certmaster::params {
   # Validate our booleans
   validate_bool($autosign)
+  validate_bool($use_puppet_certs)
   validate_bool($autoupgrade)
   validate_bool($service_enable)
   validate_bool($service_hasrestart)
