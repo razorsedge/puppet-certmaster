@@ -1,0 +1,3 @@
+class { 'certmaster':
+  ensure => 'absent',
+}
