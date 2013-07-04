@@ -1,5 +1,5 @@
-Certmaster Module
-=================
+Puppet Certmaster Module
+========================
 
 master branch: [![Build Status](https://secure.travis-ci.org/razorsedge/puppet-certmaster.png?branch=master)](http://travis-ci.org/razorsedge/puppet-certmaster)
 develop branch: [![Build Status](https://secure.travis-ci.org/razorsedge/puppet-certmaster.png?branch=develop)](http://travis-ci.org/razorsedge/puppet-certmaster)
