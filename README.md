@@ -28,46 +28,53 @@ Examples
 
 Normal Certmaster operation:
 
-    # Top Scope variable (i.e. via Dashboard):
-    $certmaster_certmaster = 'certmaster.example.com'
-    $certmaster_autoupgrade = true
-    include 'certmaster'
+Top Scope variable (i.e. via Dashboard):
 
+```Puppet
+$certmaster_certmaster = 'certmaster.example.com'
+$certmaster_autoupgrade = true
+include 'certmaster'
+```
 
-    # Parameterized Class:
-    # clients
-    node default {
-      class { 'certmaster':
-        certmaster  => 'certmaster.example.com',
-        autoupgrade => true,
-      }
-    }
+Parameterized Class:
 
-    # master
-    node 'certmaster.example.com' {
-      class { 'certmaster':
-        certmaster     => 'certmaster.example.com',
-        autoupgrade    => true,
-        autosign       => false,  # Can be true to automatically sign certificates.
-        listen_addr    => 'certmaster.example.com',
-        service_ensure => 'running',
-        service_enable => true,
-      }
-    }
+```Puppet
+# clients
+node default {
+  class { 'certmaster':
+    certmaster  => 'certmaster.example.com',
+  }
+}
+
+# master
+node 'certmaster.example.com' {
+  class { 'certmaster':
+    certmaster     => 'certmaster.example.com',
+    autosign       => false,  # Can be true to automatically sign certificates.
+    listen_addr    => 'certmaster.example.com',
+    service_ensure => 'running',
+    service_enable => true,
+  }
+}
+```
 
 Use Puppet certificates instead of Certmaster's:
 
-    # Top Scope variable (i.e. via Dashboard):
-    $certmaster_use_puppet_certs = true
-    include 'certmaster'
+Top Scope variable (i.e. via Dashboard):
 
+```Puppet
+$certmaster_use_puppet_certs = true
+include 'certmaster'
+```
 
-    # Parameterized Class:
-    # (There is no need to run the Certmaster daemon in this mode.)
-    class { 'certmaster':
-      use_puppet_certs => true,
-    }
+Parameterized Class:
 
+```Puppet
+# (There is no need to run the Certmaster daemon in this mode.)
+class { 'certmaster':
+  use_puppet_certs => true,
+}
+```
 
 Notes
 -----
