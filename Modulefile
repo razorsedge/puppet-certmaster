@@ -4,7 +4,7 @@ version '1.1.1'
 author 'razorsedge'
 license 'Apache License, Version 2.0'
 project_page 'https://github.com/razorsedge/puppet-certmaster'
-source 'git://github.com/razorsedge/puppet-certmaster.git'
+source 'https://github.com/razorsedge/puppet-certmaster.git'
 summary 'Certmaster installation and management.'
 description 'https://fedorahosted.org/certmaster/
 Certmaster is a set of tools and a library for easily distributing SSL certificates to applications that need them.'
