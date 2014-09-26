@@ -1,6 +1,6 @@
 {
   "name": "razorsedge-certmaster",
-  "version": "1.0.1",
+  "version": "1.2.0",
   "author": "razorsedge",
   "summary": "Certmaster is a set of tools and a library for easily distributing SSL certificates to applications that need them.",
   "license": "Apache License, Version 2.0",
