@@ -1,0 +1,49 @@
+{
+  "name": "razorsedge-certmaster",
+  "version": "1.0.1",
+  "author": "razorsedge",
+  "summary": "Certmaster is a set of tools and a library for easily distributing SSL certificates to applications that need them.",
+  "license": "Apache License, Version 2.0",
+  "project_page": "https://github.com/razorsedge/puppet-certmaster",
+  "issues_url": "https://github.com/razorsedge/puppet-certmaster/issues",
+  "source": "https://github.com/razorsedge/puppet-certmaster.git",
+  "tags": [ "RHEL", "rhel", "OEL", "CentOS", "certmaster", "fedora" ],
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">=2.1.0"
+    },
+    {
+      "name": "stahnma/epel",
+      "version_requirement": ">=0.0.3"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [ "5", "6" ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [ "5", "6" ]
+    },
+    {
+      "operatingsystem": "OracleLinux",
+      "operatingsystemrelease": [ "5", "6" ]
+    },
+    {
+      "operatingsystem": "Fedora",
+      "operatingsystemrelease": [ "16", "17", "18", "19", "20" ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "pe",
+      "version_requirement": "3.x"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": ">=2.7.20 <4.0.0"
+    }
+  ]
+}
