@@ -3,7 +3,7 @@
   "version": "1.2.0",
   "author": "razorsedge",
   "summary": "Certmaster is a set of tools and a library for easily distributing SSL certificates to applications that need them.",
-  "license": "Apache License, Version 2.0",
+  "license": "Apache-2.0",
   "project_page": "https://github.com/razorsedge/puppet-certmaster",
   "issues_url": "https://github.com/razorsedge/puppet-certmaster/issues",
   "source": "https://github.com/razorsedge/puppet-certmaster.git",
@@ -11,7 +11,7 @@
   "dependencies": [
     {
       "name": "puppetlabs/stdlib",
-      "version_requirement": ">=2.1.0"
+      "version_requirement": ">=2.1.0 <5.0.0"
     }
   ],
   "operatingsystem_support": [
