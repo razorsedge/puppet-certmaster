@@ -32,7 +32,7 @@ describe 'certmaster', :type => 'class' do
       :group  => 'root'
     )}
     it 'should contain File[/etc/certmaster/minion.conf] with contents "certmaster = certmaster"' do
-      verify_contents(subject, '/etc/certmaster/minion.conf', [ 'certmaster = certmaster', ])
+      verify_contents(catalogue, '/etc/certmaster/minion.conf', [ 'certmaster = certmaster', ])
     end
     it { should contain_file('/etc/certmaster/certmaster.conf').with(
       :ensure => 'present',
@@ -41,7 +41,7 @@ describe 'certmaster', :type => 'class' do
       :group  => 'root'
     )}
     it 'should contain File[/etc/certmaster/certmaster.conf] with contents "autosign = no" and "listen_addr = "' do
-      verify_contents(subject, '/etc/certmaster/certmaster.conf', [
+      verify_contents(catalogue, '/etc/certmaster/certmaster.conf', [
         'autosign = no',
         'listen_addr = ',
       ])
@@ -90,7 +90,7 @@ describe 'certmaster', :type => 'class' do
       }
       end
       it 'should contain File[/etc/certmaster/minion.conf] with contents "certmaster = localhost"' do
-        verify_contents(subject, '/etc/certmaster/minion.conf', [ 'certmaster = localhost', ])
+        verify_contents(catalogue, '/etc/certmaster/minion.conf', [ 'certmaster = localhost', ])
       end
     end
 
@@ -100,7 +100,7 @@ describe 'certmaster', :type => 'class' do
       }
       end
       it 'should contain File[/etc/certmaster/certmaster.conf] with contents "listen_addr = 127.0.0.2"' do
-        verify_contents(subject, '/etc/certmaster/certmaster.conf', [ 'listen_addr = 127.0.0.2', ])
+        verify_contents(catalogue, '/etc/certmaster/certmaster.conf', [ 'listen_addr = 127.0.0.2', ])
       end
     end
 
@@ -110,7 +110,7 @@ describe 'certmaster', :type => 'class' do
       }
       end
       it 'should contain File[/etc/certmaster/certmaster.conf] with contents "autosign = yes"' do
-        verify_contents(subject, '/etc/certmaster/certmaster.conf', [ 'autosign = yes', ])
+        verify_contents(catalogue, '/etc/certmaster/certmaster.conf', [ 'autosign = yes', ])
       end
     end
 
@@ -121,7 +121,7 @@ describe 'certmaster', :type => 'class' do
       }
       end
       it 'should contain File[/etc/certmaster/minion.conf] with contents "certmaster = "' do
-        verify_contents(subject, '/etc/certmaster/minion.conf', [ 'certmaster = ', ])
+        verify_contents(catalogue, '/etc/certmaster/minion.conf', [ 'certmaster = ', ])
       end
     end
 
